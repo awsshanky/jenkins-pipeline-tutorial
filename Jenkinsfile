@@ -14,8 +14,8 @@ pipeline {
     // This section contains environment variables which are available for use in the
     // pipeline's stages.
     environment {
-	    region = "us-east-1"
-        docker_repo_uri = ""
+	    region = "eu-north-1"
+        docker_repo_uri = "public.ecr.aws/t4o8m4g4/docker:latest"
 		task_def_arn = ""
         cluster = ""
         exec_role_arn = ""
