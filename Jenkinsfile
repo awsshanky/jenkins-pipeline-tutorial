@@ -13,13 +13,13 @@ pipeline {
 
     // This section contains environment variables which are available for use in the
     // pipeline's stages.
-    environment {
+  /*  environment {
 	    region = "eu-north-1"
         docker_repo_uri = "public.ecr.aws/t4o8m4g4/docker"
 		task_def_arn = ""
         cluster = ""
         exec_role_arn = ""
-    }
+    } */
     
     // Here you can define one or more stages for your pipeline.
     // Each stage can execute one or more steps.
