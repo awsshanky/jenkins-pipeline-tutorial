@@ -24,22 +24,17 @@ pipeline {
     // Here you can define one or more stages for your pipeline.
     // Each stage can execute one or more steps.
     stages {
-        // This is a stage.
+        // This is a build stage.
         stage('Build') {
     steps {
-        // Get SHA1 of current commit
+   
         script {
-            commit_id = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
-	   // TAG = sh(returnStdout: true, script: 'date +%d-%m-%Y-%H-%M').trim()	
-        }
-        // Build the Docker image
-        sh "docker build -t ${docker_repo_uri}:${commit_id} ."
-        // Get Docker login credentials for ECR
-        sh "aws ecr get-login --no-include-email --region ${region} | sh"
-        // Push Docker image
-        sh "docker push ${docker_repo_uri}:${commit_id}"
-        // Clean up
-        sh "docker rmi -f ${docker_repo_uri}:${commit_id}"
+            docker.withRegistry(
+		    'https://209264512117.dkr.ecr.eu-north-1.amazonaws.com',
+		    'ecr:eu-north-1:aws_slave_key') {
+		    def myImage = docker.build('public.ecr.aws/t4o8m4g4/docker')
+		    myImage.push('latest')
+       
             }
         }
     }
