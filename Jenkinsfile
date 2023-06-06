@@ -15,7 +15,7 @@ pipeline {
     // pipeline's stages.
     environment {
 	    region = "eu-north-1"
-        docker_repo_uri = "public.ecr.aws/t4o8m4g4/docker:latest"
+        docker_repo_uri = "public.ecr.aws/t4o8m4g4/docker"
 		task_def_arn = ""
         cluster = ""
         exec_role_arn = ""
@@ -30,6 +30,7 @@ pipeline {
         // Get SHA1 of current commit
         script {
             commit_id = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
+	   // TAG = sh(returnStdout: true, script: 'date +%d-%m-%Y-%H-%M').trim()	
         }
         // Build the Docker image
         sh "docker build -t ${docker_repo_uri}:${commit_id} ."
