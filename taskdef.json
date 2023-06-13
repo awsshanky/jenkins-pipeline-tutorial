@@ -1,9 +1,9 @@
 {
-    "family": "jenkins-task-def",
+    "family": "jenkins-task-def1",
     "networkMode": "awsvpc",
     "containerDefinitions": [
         {
-            "name": "jenkins-task-def",
+            "name": "jenkins-container",
             "image": "{{image}}",
             "portMappings": [
                 {
