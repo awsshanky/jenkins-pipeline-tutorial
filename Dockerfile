@@ -1,3 +1,1 @@
-FROM alpine
-RUN apk update
-RUN apk add krb5
+FROM awsshanky03/jenkins:lts
