@@ -18,7 +18,7 @@ pipeline {
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
 	task_def_arn = "arn:aws:ecs:eu-north-1:209264512117:task-definition/jenkins-task-def"
  	cluster = "Cluster007"
- 	exec_role_arn = "arn:aws:iam::209264512117:role/ecsTaskExecutionRole" 
+ 	exec_role_arn = "arn:aws:iam::209264512117:role/my-ecs-task-new-role" 
     }
    
     stages {
